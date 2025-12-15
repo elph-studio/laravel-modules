@@ -1,0 +1,117 @@
+<?php
+
+declare(strict_types=1);
+
+// phpcs:disable
+
+use Elph\LaravelHelpers\Entity\Environment;
+use Elph\LaravelModules\Console\Module;
+use Nwidart\Modules\Commands; // phpcs:ignore
+
+return [
+    'namespace' => 'Module',
+    'stubs' => [
+        'enabled' => true,
+        'files' => [
+            'routes/web' => 'Route/web.php',
+            'routes/api' => 'Route/api.php',
+        ],
+        'replacements' => [
+            'routes/web' => ['LOWER_NAME', 'STUDLY_NAME'],
+            'routes/api' => ['LOWER_NAME'],
+            'json' => ['LOWER_NAME', 'STUDLY_NAME', 'MODULE_NAMESPACE', 'PROVIDER_NAMESPACE'],
+        ],
+        'gitkeep' => false,
+        'paths' => [
+            'modules' => base_path('Module'),
+            'assets' => public_path('module'),
+            'migration' => base_path('database/migrations'),
+            'generator' => [
+                'config' => ['path' => 'Config', 'generate' => false],
+                'command' => ['path' => 'Console', 'generate' => false],
+                'migration' => ['path' => 'Database/Migration', 'generate' => false],
+                'seeder' => ['path' => 'Database/Seeder', 'generate' => false],
+                'faker' => ['path' => 'Database/Faker', 'generate' => false],
+                'factory' => ['path' => 'Factory', 'generate' => false],
+                'enum' => ['path' => 'Enum', 'generate' => false],
+                'model' => ['path' => 'Model', 'generate' => false],
+                'routes' => ['path' => 'Route', 'generate' => false],
+                'controller_api' => ['path' => 'Http/ApiController', 'generate' => false],
+                'controller_view' => ['path' => 'Http/ViewController', 'generate' => false],
+                'request' => ['path' => 'Http/Request', 'generate' => false],
+                'response' => ['path' => 'Http/Response', 'generate' => false],
+                'provider' => ['path' => 'Provider', 'generate' => true],
+                'lang' => ['path' => 'Resource/lang', 'generate' => false],
+                'views' => ['path' => 'Resource/views', 'generate' => false],
+                'test' => ['path' => 'Test/Unit', 'generate' => false],
+                'test-feature' => ['path' => 'Test/Feature', 'generate' => false],
+                'test-integration' => ['path' => 'Test/Integration', 'generate' => false],
+                'repository' => ['path' => 'Repository', 'generate' => false],
+                'service' => ['path' => 'Service', 'generate' => false],
+                'event' => ['path' => 'Event', 'generate' => false],
+                'listener' => ['path' => 'Listener', 'generate' => false],
+                'policies' => ['path' => 'Policy', 'generate' => false],
+                'rules' => ['path' => 'ValidationRule', 'generate' => false],
+                'jobs' => ['path' => 'Jobs', 'generate' => false],
+                'emails' => ['path' => 'Email', 'generate' => false],
+                'notifications' => ['path' => 'Notification', 'generate' => false],
+                'component-view' => ['path' => 'Resource/views/components', 'generate' => false],
+                'component-class' => ['path' => 'View/Component', 'generate' => false],
+            ],
+        ],
+        'commands' => Environment::isDevelopment() === false ? [] : [
+            Commands\Make\CommandMakeCommand::class,
+//        Commands\ComponentClassMakeCommand::class,
+//        Commands\ComponentViewMakeCommand::class,
+//        Commands\DisableCommand::class,
+//        Commands\DumpCommand::class,
+//        Commands\EnableCommand::class,
+//        Commands\EventMakeCommand::class,
+//        Commands\JobMakeCommand::class,
+//        Commands\ListenerMakeCommand::class,
+//        Commands\MailMakeCommand::class,
+            Commands\Make\MiddlewareMakeCommand::class,
+            Commands\Make\NotificationMakeCommand::class,
+            Commands\Make\ProviderMakeCommand::class,
+            Commands\Make\RouteProviderMakeCommand::class,
+//        Commands\InstallCommand::class,
+            Commands\Actions\ListCommand::class,
+//        Commands\ModuleDeleteCommand::class,
+            Module\ModuleMakeCommand::class, // Commands\ModuleMakeCommand::class
+//            Module\FakerMakeCommand::class, // Commands\FactoryMakeCommand::class,
+//        Commands\PolicyMakeCommand::class,
+//            Module\RequestMakeCommand::class, // Commands\RequestMakeCommand::class
+//        Commands\RuleMakeCommand::class,
+//        Commands\MigrateCommand::class,
+//        Commands\MigrateRefreshCommand::class,
+//        Commands\MigrateResetCommand::class,
+//        Commands\MigrateRollbackCommand::class,
+            Commands\Database\MigrateStatusCommand::class,
+//            Module\MigrationMakeCommand::class, // Commands\MigrationMakeCommand::class,
+            Commands\Make\ModelMakeCommand::class,
+//        Commands\PublishCommand::class,
+//        Commands\PublishConfigurationCommand::class,
+//        Commands\PublishMigrationCommand::class,
+//        Commands\PublishTranslationCommand::class,
+//        Commands\SeedCommand::class,
+//            Module\SeederMakeCommand::class, // Commands\SeedMakeCommand::class,
+//        Commands\SetupCommand::class,
+            Commands\Actions\UnUseCommand::class,
+//        Commands\UpdateCommand::class,
+            Commands\Actions\UseCommand::class,
+//            Module\ResponseMakeCommand::class, // Commands\ResourceMakeCommand::class
+//        Commands\TestMakeCommand::class,
+//        Commands\LaravelModulesV6Migrator::class,
+//            Module\RepositoryMakeCommand::class,
+            Module\ServiceMakeCommand::class,
+            Module\FactoryMakeCommand::class,
+            Module\EnumMakeCommand::class,
+//            Module\AmqpMakeCommand::class,
+//            Module\AmqpConsumerMakeCommand::class,
+//            Module\AmqpDtoMakeCommand::class,
+//            Module\AmqpExchangeMakeCommand::class,
+//            Module\AmqpPublisherMakeCommand::class,
+//            Module\AmqpQueueMakeCommand::class,
+        ],
+    ]
+];

@@ -1,0 +1,27 @@
+<?php
+
+declare(strict_types=1);
+
+namespace $NAMESPACE$;
+
+use $REQUEST_NAMESPACE$;
+use $MODEL_NAMESPACE$;
+
+class $NAME$
+{
+    public function create(array $data): $MODEL_NAME$
+    {
+        $$MODEL_VARIABLE$ = new $MODEL_NAME$();
+        $$MODEL_VARIABLE$->identifier = $data['identifier'];
+
+        return $$MODEL_VARIABLE$;
+    }
+
+    public function createFromRequest($REQUEST_NAME$ $$REQUEST_VARIABLE$): $MODEL_NAME$
+    {
+        $$MODEL_VARIABLE$ = new $MODEL_NAME$();
+        $$MODEL_VARIABLE$->identifier = $$REQUEST_VARIABLE$->identifier;
+
+        return $$MODEL_VARIABLE$;
+    }
+}

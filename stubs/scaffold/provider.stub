@@ -1,0 +1,15 @@
+<?php
+
+declare(strict_types=1);
+
+namespace $NAMESPACE$;
+
+use Elph\LaravelModules\Provider\ModuleServiceProvider;
+
+/**
+ * This Provider is required for proper module and routes autoload.
+ * It can be used for additional classes registrations, but can't be fully removed.
+ */
+class $CLASS$ extends ModuleServiceProvider
+{
+}

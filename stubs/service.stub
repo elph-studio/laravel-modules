@@ -1,0 +1,53 @@
+<?php
+
+declare(strict_types=1);
+
+namespace $NAMESPACE$;
+
+use App\Message\ErrorMessage;
+use Illuminate\Database\Eloquent\Collection;
+use $REQUEST_NAMESPACE$;
+use $FACTORY_NAMESPACE$;
+use $MODEL_NAMESPACE$;
+use $REPOSITORY_NAMESPACE$;
+
+class $NAME$
+{
+    public function __construct(
+        private readonly $REPOSITORY_NAME$ $$REPOSITORY_VARIABLE$,
+        private readonly $FACTORY_NAME$ $$FACTORY_VARIABLE$
+    ) {
+    }
+
+    public function get(string $identifier): $MODEL_NAME$|null
+    {
+        return $this->$REPOSITORY_VARIABLE$->get($identifier);
+    }
+
+    /**
+     * @return Collection<int, $MODEL_NAME$>
+     */
+    public function getAll(): Collection
+    {
+        return $this->$REPOSITORY_VARIABLE$->getAll();
+    }
+
+    public function createFromRequest($REQUEST_NAME$ $$REQUEST_VARIABLE$): $MODEL_NAME$
+    {
+        return $this->$REPOSITORY_VARIABLE$->save(
+            $this->$FACTORY_VARIABLE$->createFromRequest($$REQUEST_VARIABLE$)
+        );
+    }
+
+    public function update($MODEL_NAME$ $$MODEL_VARIABLE$, $REQUEST_NAME$ $$REQUEST_VARIABLE$): $MODEL_NAME$
+    {
+        $$MODEL_VARIABLE$->identifier = $$REQUEST_VARIABLE$->identifier;
+
+        return $this->$REPOSITORY_VARIABLE$->save($$MODEL_VARIABLE$);
+    }
+
+    public function delete($MODEL_NAME$ $$MODEL_VARIABLE$): bool
+    {
+        return $this->$REPOSITORY_VARIABLE$->delete($$MODEL_VARIABLE$);
+    }
+}
