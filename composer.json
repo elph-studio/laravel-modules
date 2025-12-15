@@ -1,5 +1,5 @@
 {
-    "name": "elph-studio/package",
+    "name": "elph-studio/laravel-modules",
     "type": "library",
     "description": "",
     "license": "MIT",
@@ -10,7 +10,8 @@
         "homepage": "https://www.elph.studio"
     }],
     "require": {
-        "php": "^8.5"
+        "php": "^8.5",
+        "nwidart/laravel-modules": "^12.0"
     },
     "require-dev": {
         "elph-studio/laravel-testing-tools": "^v0.3",
@@ -19,7 +20,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Elph\\PACKAGE\\": "src"
+            "Elph\\LaravelModules\\": "src"
         }
     },
     "autoload-dev": {
@@ -38,7 +39,8 @@
     "minimum-stability": "stable",
     "config": {
         "allow-plugins": {
-            "dealerdirect/phpcodesniffer-composer-installer": true
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "wikimedia/composer-merge-plugin": true
         }
     }
 }
