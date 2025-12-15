@@ -42,12 +42,5 @@
             "dealerdirect/phpcodesniffer-composer-installer": true,
             "wikimedia/composer-merge-plugin": true
         }
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Elph\\LaravelModules\\Provider\\ModuleRouteServiceProvider"
-            ]
-        }
     }
 }
