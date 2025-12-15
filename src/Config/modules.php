@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+// phpcs:disable
+
 use Elph\LaravelHelpers\Entity\Environment;
 use Elph\LaravelModules\Console\Module;
 use Nwidart\Modules\Commands; // phpcs:ignore
