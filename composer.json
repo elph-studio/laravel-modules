@@ -1,0 +1,44 @@
+{
+    "name": "elph-studio/package",
+    "type": "library",
+    "description": "",
+    "license": "MIT",
+    "keywords": [],
+    "authors": [{
+        "name": "Elephant Studio",
+        "email": "developers@elph.studio",
+        "homepage": "https://www.elph.studio"
+    }],
+    "require": {
+        "php": "^8.5"
+    },
+    "require-dev": {
+        "elph-studio/laravel-testing-tools": "^v0.3",
+        "elph-studio/laravel-helpers": "^v0.1",
+        "laravel/framework": "12.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Elph\\PACKAGE\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Test\\": "tests"
+        }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "@php vendor/elph-studio/laravel-helpers/src/Helper/Plain/VendorFixer.php"
+        ],
+        "post-update-cmd": [
+            "@php vendor/elph-studio/laravel-helpers/src/Helper/Plain/VendorFixer.php"
+        ]
+    },
+    "minimum-stability": "stable",
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    }
+}
