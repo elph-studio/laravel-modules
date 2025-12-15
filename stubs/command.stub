@@ -1,0 +1,35 @@
+<?php
+
+declare(strict_types=1);
+
+namespace $NAMESPACE$;
+
+use Illuminate\Console\Command;
+use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Input\InputArgument;
+
+class $CLASS$ extends Command
+{
+    protected $name = '$COMMAND_NAME$';
+
+    protected $description = 'Command description.';
+
+    public function handle(): int
+    {
+        //
+    }
+
+    protected function getArguments(): array
+    {
+        return [
+            ['example', InputArgument::REQUIRED, 'An example argument.'],
+        ];
+    }
+
+    protected function getOptions(): array
+    {
+        return [
+            ['example', null, InputOption::VALUE_OPTIONAL, 'An example option.', null],
+        ];
+    }
+}

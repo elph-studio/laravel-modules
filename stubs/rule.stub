@@ -1,0 +1,25 @@
+<?php
+
+declare(strict_types=1);
+
+namespace $NAMESPACE$;
+
+use Illuminate\Contracts\Validation\Rule;
+
+class $CLASS$ implements Rule
+{
+    public function __construct(): void
+    {
+        //
+    }
+
+    public function passes($attribute, $value): bool
+    {
+        //
+    }
+
+    public function message(): string
+    {
+        return 'The validation error message.';
+    }
+}
